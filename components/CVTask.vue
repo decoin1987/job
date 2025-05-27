@@ -10,16 +10,22 @@ const taskList = ref<Task[]>([
 </script>
 
 <template>
-  <div class="section mb-5">
+  <div class="cv-task section mb-5">
     <p class="text-lg mb-5">Дела:</p>
     <div class="flex gap-2">
       <UButton v-for="task in taskList" variant="solid" :disabled="!task.active" :color="task.checked ? 'success' : 'primary'" @click="task.taskHandler()" :key="task.id">
         {{ task.title }}
       </UButton>
     </div>
+    <USeparator class="text-gray-200 my-5"/>
   </div>
+
 </template>
 
 <style scoped>
-
+@media print {
+  .cv-task {
+    display: none;
+  }
+}
 </style>

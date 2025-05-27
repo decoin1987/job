@@ -8,18 +8,27 @@ defineProps<{
 </script>
 
 <template>
-  <div class="section rounded-lg bg-gray-100 p-5">
-    <p class="text-lg mb-5">Статус рассмотрения:</p>
-    <div class="flex flex-wrap gap-5">
-      <div v-for="(value, key, index) in items" class="timeline-item px-4 flex items-center rounded-l-sm mr-2"
-           :class="index <= activeStep ? 'active' : ''">
-        <span>{{ value }}</span>
+  <div class="cv-statuses">
+    <div class="rounded-lg bg-gray-100 p-5">
+      <p class="text-lg mb-5">Статус рассмотрения:</p>
+      <div class="flex flex-wrap gap-5">
+        <div v-for="(value, key, index) in items" class="timeline-item px-4 flex items-center rounded-l-sm mr-2"
+             :class="index <= activeStep ? 'active' : ''">
+          <span>{{ value }}</span>
+        </div>
       </div>
     </div>
+    <USeparator class="text-gray-200 my-5"/>
   </div>
+
 </template>
 
 <style scoped>
+@media print {
+  .cv-statuses {
+    display: none;
+  }
+}
 .timeline-item {
   cursor: default;
   border-radius: 6px;

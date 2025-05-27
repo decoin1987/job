@@ -28,13 +28,9 @@ const activeStep = (): number => {
 
       <CVMainInformation :data="data" :statuses="statuses"/>
 
-      <USeparator class="text-gray-200 my-5"/>
-
       <CVTask/>
 
       <CVStatuses :items="statuses" :active="activeStep()"/>
-
-      <USeparator class="text-gray-200 my-5"/>
 
       <div>
         <p class="text-lg">PIKABU отклик</p>

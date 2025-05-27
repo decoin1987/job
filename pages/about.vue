@@ -30,7 +30,7 @@ const activeStep = (): number => {
 
       <CVTask/>
 
-      <CVStatuses :items="statuses" :active="activeStep()"/>
+      <CVStatuses :items="statuses" :activeStep="activeStep()"/>
 
       <div>
         <p class="text-lg">PIKABU отклик</p>

@@ -1,27 +1,35 @@
 <script lang="ts" setup>
-defineProps({
+defineProps<{
   items: {},
-  active: Number,
-})
+  activeStep: number,
+}>()
+
+
 </script>
 
 <template>
-    <div v-for="(value, key, index) in items" class="timeline-item px-4 flex items-center rounded-l-sm mr-2" :class="index <= active ? 'active' : ''">
-      <span>{{value}}</span>
+  <div class="section rounded-lg bg-gray-100 p-5">
+    <p class="text-lg mb-5">Статус рассмотрения:</p>
+    <div class="flex flex-wrap gap-5">
+      <div v-for="(value, key, index) in items" class="timeline-item px-4 flex items-center rounded-l-sm mr-2"
+           :class="index <= activeStep ? 'active' : ''">
+        <span>{{ value }}</span>
+      </div>
     </div>
+  </div>
 </template>
 
 <style scoped>
-.timeline-item{
+.timeline-item {
   cursor: default;
   border-radius: 6px;
   height: 41px;
   background-color: var(--ui-color-neutral-300);
   position: relative;
-  z-index:1;
+  z-index: 1;
 }
 
-.active  {
+.active {
   color: white;
   background-color: var(--ui-color-info-400);
 }
@@ -30,7 +38,7 @@ defineProps({
   border-bottom: 15px solid var(--ui-color-info-400);
 }
 
-.timeline-item::after{
+.timeline-item::after {
   content: "";
   position: absolute;
   transform: rotate(90deg);

@@ -40,7 +40,7 @@ const activeStep = (): number => {
       <USeparator class="text-gray-200 my-5"/>
 
       <div class="section">
-        <p v-for="item in data.description.split('\r\n')">{{ item }}</p>
+        <p v-for="(item, index) in data.description.split('\r\n')" :key="index">{{ item }}</p>
       </div>
 
       <template #footer>

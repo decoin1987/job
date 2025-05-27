@@ -13,7 +13,9 @@ defineProps<{
       <p class="text-lg mb-5">Статус рассмотрения:</p>
       <div class="flex flex-wrap gap-5">
         <div v-for="(value, key, index) in items" class="timeline-item px-4 flex items-center rounded-l-sm mr-2"
-             :class="index <= activeStep ? 'active' : ''">
+             :class="index <= activeStep ? 'active' : ''"
+             :key="key"
+        >
           <span>{{ value }}</span>
         </div>
       </div>
